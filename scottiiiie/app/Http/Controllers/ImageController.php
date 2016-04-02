@@ -7,7 +7,7 @@ use App\User;
 use App\Image;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ImageController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,10 +24,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getUpload()
     {
-        $users = User::all();
-
-        return view('home', ['users' => $users]);
+        return view('images.upload');
+        
+    }
+    
+    public function postUpload()
+    {
+        $image = new Image;
+        $image->user_id = Auth::user()->id;
+        $image->save();
+        return redirect()->route('home');
     }
 }
