@@ -18,6 +18,6 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/upload_form', 'HomeController@uploadForm');
+Route::get('/upload_submit', 'HomeController@uploadSubmit');
 
-Route::get('/image_form', 'ImageController@getUpload');
-Route::post('/image_submit', 'ImageController@postUpload');

@@ -7,7 +7,7 @@ class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
-     * https://laraveltips.wordpress.com/category/image-management-in-laravel-5-1/
+     * 
      * @return void
      */
     public function up()

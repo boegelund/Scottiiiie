@@ -49,7 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     @if (!Auth::guest())
-                    <li><a href="{{ url('/image_form') }}">Upload Image</a></li>
+                    <li><a href="{{ url('/upload_form') }}">Upload Image</a></li>
                     @endif
                 </ul>
 
