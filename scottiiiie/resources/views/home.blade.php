@@ -10,8 +10,9 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
-                @foreach ($users as $user)
-                    <p>This is user {{ $user->name }}</p>
+                
+                @foreach ($images as $image)
+                    <p>This is image owned by {{ $image->user_id }}</p>
                 @endforeach
             </div>
         </div>
