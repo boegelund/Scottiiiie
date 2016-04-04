@@ -10,4 +10,12 @@ class Image extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    /**
+     * Get the comments for the image.
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
