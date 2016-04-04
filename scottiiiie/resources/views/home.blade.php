@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 @foreach ($images as $image)
-                    <a href="image/{{ $image->id }}"><p>This is image owned by {{ $image->user->name }}</p></a>
+                    <a href="image/{{ $image->id }}"><p>Uploaded by {{ $image->user->name }}</p></a>
                     <hr>
                 @endforeach
             </div>

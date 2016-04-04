@@ -12,7 +12,8 @@
                 </div>
                 
                 <p>{{ $image->id }}</p>
-                <img src="{{ url('image/get', ['id' => $image->id]) }}" />
+                
+                <img src="data:image/jpeg;base64,{{ base64_encode($image->image_data) }}">
             </div>
         </div>
     </div>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Image as ImageLibrary; 
 use App\Image;
 use App\Http\Controllers\Controller;
+
 
 
 class ImageController extends Controller
@@ -37,17 +39,23 @@ class ImageController extends Controller
         return view('upload');
     }
     
-    public function submit()
+    public function submit(Request $request)
     {
+        $this->validate($request, [
+            'image' => 'required|max:10000|mimes:jpg,jpeg'
+        ]);
+        
+        $file = $request->file('image');
         $image = new Image;
         $image->user_id = Auth::user()->id;
+        $image->image_data = file_get_contents($file);
         $image->save();
+        
         return redirect('home');
     }
     
     public function get($id)
     {
-        $img = Image::make('foo.jpg');
-        return $img->response('jpg');
+        return Image::findOrFail($id)->image_data;
     }
 }

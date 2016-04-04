@@ -8,8 +8,13 @@
                 <div class="panel-heading">Upload Form</div>
 
                 <div class="panel-body">
-                    <form action="submit">
-                        <input type="submit" value="Submit" />
+                    <form action="submit" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="image">Image (Only .jpg)</label>
+                            <input type="file" name="image" class="form-control" id="image">
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                        <input type="hidden" value="{{ Session::token() }}" name="_token">
                     </form>
                 </div>
             </div>

@@ -24,7 +24,7 @@ Route::get('/get/{id}', function($id)
 });
 
 Route::get('image/form', 'ImageController@form');
-Route::get('image/submit', 'ImageController@submit');
+Route::post('image/submit', 'ImageController@submit');
 Route::get('image/get/{id}', 'ImageController@get');
 Route::get('image/{id}', 'ImageController@showImage');
 
