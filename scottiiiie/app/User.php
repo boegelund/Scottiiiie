@@ -29,7 +29,7 @@ class User extends Authenticatable
      */
     public function images()
     {
-        return $this->hasMany('App\Image');
+        return $this->belongsTo('App\Image');
     }
     
     /**
@@ -37,6 +37,6 @@ class User extends Authenticatable
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->belongsTo('App\Comment');
     }
 }

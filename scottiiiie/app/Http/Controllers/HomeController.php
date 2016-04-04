@@ -29,9 +29,6 @@ class HomeController extends Controller
     public function index()
     {
         $images = Image::all();
-        
-        // $images = User::find(Auth::user()->id)->images();
-
         return view('home', ['images' => $images]);
     }
     
@@ -45,7 +42,6 @@ class HomeController extends Controller
         $image = new Image;
         $image->user_id = Auth::user()->id;
         $image->save();
-                
         return redirect('home');
     }
     
