@@ -42,7 +42,7 @@ class HomeController extends Controller
         $image = new Image;
         $image->user_id = Auth::user()->id;
         $image->save();
-        return redirect()->route('home');
+        return Redirect::route('home');
     }
     
 }

@@ -13,7 +13,6 @@ class DropImageUniqueName extends Migration
     public function up()
     {
         Schema::table('images', function ($table) {
-            $table->dropForeign('image_name');
             $table->dropColumn('image_path');
             $table->dropColumn('image_extension');
         });
