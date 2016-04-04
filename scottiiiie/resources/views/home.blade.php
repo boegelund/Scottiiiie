@@ -6,13 +6,9 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-                
                 @foreach ($images as $image)
-                    <p>This is image owned by {{ $image->user_id }}</p>
+                    <a href="image/{{ $image->id }}"><p>This is image owned by {{ $image->user->name }}</p></a>
+                    <hr>
                 @endforeach
             </div>
         </div>

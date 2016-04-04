@@ -12,7 +12,7 @@
                 </div>
                 
                 <p>{{ $image->id }}</p>
-                <p>{{ $image->timestamp }}</p>
+                <img src="{{ url('image/get', ['id' => $image->id]) }}" />
             </div>
         </div>
     </div>

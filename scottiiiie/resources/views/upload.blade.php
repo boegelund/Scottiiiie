@@ -8,7 +8,7 @@
                 <div class="panel-heading">Upload Form</div>
 
                 <div class="panel-body">
-                    <form action="upload_submit">
+                    <form action="submit">
                         <input type="submit" value="Submit" />
                     </form>
                 </div>

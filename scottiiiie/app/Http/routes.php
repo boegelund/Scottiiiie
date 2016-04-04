@@ -17,9 +17,17 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('/get/{id}', function($id)
+{
+    $img = Image::canvas(800, 600 * $id, '#ff0000');
+    return $img->response();
+});
+
+Route::get('image/form', 'ImageController@form');
+Route::get('image/submit', 'ImageController@submit');
+Route::get('image/get/{id}', 'ImageController@get');
 Route::get('image/{id}', 'ImageController@showImage');
 
 Route::get('/home', 'HomeController@index');
-Route::get('/upload_form', 'HomeController@uploadForm');
-Route::get('/upload_submit', 'HomeController@uploadSubmit');
+
 

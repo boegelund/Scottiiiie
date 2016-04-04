@@ -8,6 +8,7 @@ use App\User;
 use App\Image;
 use App\Http\Controllers\Controller;
 
+
 class ImageController extends Controller
 {
     /**
@@ -29,5 +30,24 @@ class ImageController extends Controller
     public function showImage($id)
     {
         return view('image', ['image' => image::findOrFail($id)]);
+    }
+    
+    public function form()
+    {
+        return view('upload');
+    }
+    
+    public function submit()
+    {
+        $image = new Image;
+        $image->user_id = Auth::user()->id;
+        $image->save();
+        return redirect('home');
+    }
+    
+    public function get($id)
+    {
+        $img = Image::make('foo.jpg');
+        return $img->response('jpg');
     }
 }

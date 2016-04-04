@@ -31,18 +31,4 @@ class HomeController extends Controller
         $images = Image::all();
         return view('home', ['images' => $images]);
     }
-    
-    public function uploadForm()
-    {
-        return view('upload');
-    }
-    
-    public function uploadSubmit()
-    {
-        $image = new Image;
-        $image->user_id = Auth::user()->id;
-        $image->save();
-        return redirect('home');
-    }
-    
 }
