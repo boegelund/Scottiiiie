@@ -23,9 +23,12 @@ Route::get('/get/{id}', function($id)
     return $img->response();
 });
 
+Route::get('image/revokeUser/{image_id}/{user_id}', 'ImageController@revokeUser');
+
 Route::get('image/form', 'ImageController@form');
 Route::post('image/submit', 'ImageController@submit');
 Route::get('image/get/{id}', 'ImageController@get');
+Route::post('image/addUser', 'ImageController@addUser');
 Route::get('image/{id}', 'ImageController@showImage');
 
 Route::get('/home', 'HomeController@index');

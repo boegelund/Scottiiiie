@@ -18,4 +18,12 @@ class Image extends Model
     {
         return $this->hasMany('App\Comment');
     }
+    
+    /**
+     * Get the privileges for the image.
+     */
+    public function imageAccess()
+    {
+        return $this->hasMany('App\ImageAccess');
+    }
 }

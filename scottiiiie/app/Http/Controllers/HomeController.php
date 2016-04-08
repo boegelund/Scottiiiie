@@ -28,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $images = User::find(Auth::user()->id)->imageAccess();
+        // return $images;
         $images = Image::all();
         return view('home', ['images' => $images]);
     }

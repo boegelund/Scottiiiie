@@ -39,4 +39,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Comment');
     }
+    
+    /**
+     * Get the privileges.
+     */
+    public function imageAccess()
+    {
+        return $this->belongsToMany('App\ImageAccess');
+    }
 }

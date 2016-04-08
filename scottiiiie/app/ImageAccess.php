@@ -13,8 +13,13 @@ class ImageAccess extends Model
      */
     protected $table = 'image_access';
     
-    /**
-     * Using composite unique keys
-     */
-    protected $incrementing = false;
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
+    public function image()
+    {
+        return $this->belongsTo('App\Image');
+    }
 }
