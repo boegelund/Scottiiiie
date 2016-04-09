@@ -6,17 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    /**
-     * Get the Image associated with the comment.
-     */
     public function image()
     {
         return $this->belongsTo('App\Image');
     }
     
-    /**
-     * Get the user associated with the comment.
-     */
     public function user()
     {
         return $this->hasOne('App\User');

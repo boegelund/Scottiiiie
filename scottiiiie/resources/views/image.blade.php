@@ -58,14 +58,6 @@
                         @endforeach
                     </table>
                 </div>
-                <!--<div class="panel-heading">Comments</div>
-                    <table class="table table-striped">
-                        <tr><td>1</td><td>2</td></tr>
-                        <tr><td>1</td><td>2</td></tr>
-                        <tr><td>1</td><td>2</td></tr>
-                        <tr><td>1</td><td>2</td></tr>
-                    </table>
-                </div>-->
             </div>
         </div>
     </div>

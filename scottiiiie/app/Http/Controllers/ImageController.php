@@ -56,7 +56,7 @@ class ImageController extends Controller
         $image->image_data = $file->encode('jpg', 80);
         $image->save();
         
-        return redirect('image/'.$image->id);        
+        return redirect('image/'.$image->id);
     }
     
     public function addUser(Request $request)

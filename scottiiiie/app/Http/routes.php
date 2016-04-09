@@ -12,16 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
 Route::auth();
-
-Route::get('/get/{id}', function($id)
-{
-    $img = Image::canvas(800, 600 * $id, '#ff0000');
-    return $img->response();
-});
 
 Route::get('image/revokeUser/{image_id}/{user_id}', 'ImageController@revokeUser');
 
