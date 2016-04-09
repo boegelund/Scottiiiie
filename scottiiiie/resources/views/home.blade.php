@@ -13,6 +13,8 @@
                 
                 @foreach ($images as $image)
                     <p>This is image owned by {{ $image->user_id }}</p>
+                    <p>comments:</p>
+                    <input type="text" id="comment">
                 @endforeach
             </div>
         </div>
