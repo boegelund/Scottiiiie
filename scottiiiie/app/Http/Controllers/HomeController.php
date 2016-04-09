@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         // $images = User::find(Auth::user()->id)->imageAccess();
         // return $images;
-        $images = Image::all();
+        $images = Image::orderBy('created_at', 'desc')->get();
         return view('home', ['images' => $images]);
     }
 }

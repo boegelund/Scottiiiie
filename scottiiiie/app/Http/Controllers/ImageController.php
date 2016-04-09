@@ -10,8 +10,6 @@ use App\Image;
 use App\ImageAccess;
 use App\Http\Controllers\Controller;
 
-
-
 class ImageController extends Controller
 {
     /**
@@ -53,7 +51,7 @@ class ImageController extends Controller
         $image->image_data = $file->encode('jpg', 80);
         $image->save();
         
-        return redirect('home');
+        return redirect('image/'.$image->id);        
     }
     
     public function addUser(Request $request)
@@ -66,7 +64,7 @@ class ImageController extends Controller
         // YOU OWN IMAGE?
         if (!Image::find($request->imageid)->where('user_id', '=', Auth::user()->id)->exists())
         {
-            return "YOU DON'T OWN THIS!";
+            abort(404);
         }
         
         // check preconditions
@@ -95,7 +93,7 @@ class ImageController extends Controller
         // Only owner can call this function
         if (!ImageAccess::where('image_id', '=', $image_id)->where('user_id', '=', Auth::user()->id)->exists())
         {
-            return "ILLEGAL OPERATION";
+            abort(404);
         }
         $access = ImageAccess::where('image_id', '=', $image_id)->where('user_id', '=', $user_id)->first();
         $access->delete();
@@ -104,6 +102,8 @@ class ImageController extends Controller
     
     public function get($id)
     {
+        //if (User::find(Auth::user()->id)->ImageAccess()->where('image_id', '=', ))
+        
         if (Image::find($id)->imageAccess()->where('user_id', '=', Auth::user()->id)->exists())
         {
             return Image::findOrFail($id)->image_data;
