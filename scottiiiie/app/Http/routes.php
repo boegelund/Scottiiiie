@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('image/revokeUser/{image_id}/{user_id}', 'ImageController@revokeUser');
-
+Route::post('comment/create', 'CommentController@store');
 Route::get('image/form', 'ImageController@form');
 Route::post('image/submit', 'ImageController@submit');
 Route::get('image/get/{id}', 'ImageController@get');

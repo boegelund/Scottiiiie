@@ -24,15 +24,6 @@
                         @endforeach
                     </table>
                 </div>
-<<<<<<< HEAD
-                
-                @foreach ($images as $image)
-                    <p>This is image owned by {{ $image->user_id }}</p>
-                    <p>comments:</p>
-                    <input type="text" id="comment">
-                @endforeach
-=======
->>>>>>> 0a526a83b089342e22e9e74325e4e1ade959de0d
             </div>
         </div>
     </div>

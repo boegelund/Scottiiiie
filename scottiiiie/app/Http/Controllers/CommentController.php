@@ -1,19 +1,24 @@
 <?php namespace App\Http\Controllers;
-use App\Posts;
-use App\Comments;
+use App\Comment;
 use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 class CommentController extends Controller {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(Request $request)
     {
-        //on_post, from_user, body
-        $input['from_user'] = $request->user()->id;
-        $input['on_post'] = $request->input('on_post');
-        $input['body'] = $request->input('body');
-        $slug = $request->input('slug');
-        Comments::create( $input );
-        return redirect($slug)->with('message', 'Comment published');
+        $comment = new Comment;
+        $comment->user_id = Auth::user()->id;
+        $comment->image_id = $request->input('image_id');
+        $comment->comment = $request->input('comment');
+        $comment->save();
+        return redirect('image/'.$comment->image_id);
     }
 }

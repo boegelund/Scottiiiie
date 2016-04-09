@@ -35,7 +35,7 @@
                         @endif
                         <input type="hidden" name="imageid" value="{{$image->id}}">
                         <input type="hidden" value="{{ Session::token() }}" name="_token">
-                        <form>
+                        </form>
                         
                         <tr>
                             <th>List of users</th>
@@ -57,6 +57,17 @@
                         </tr>
                         @endforeach
                     </table>
+                <form action="{{url("comment/create")}}" method="POST">
+                    <p>comments:</p>
+                    <input type="text" id="comment" name="comment">
+                    <input type="hidden" value="{{$image->id}}" name="image_id" >
+                    <input type="hidden" value="{{ Session::token() }}" name="_token">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </form>
+                <hr>
+                 @foreach ($image->comments as $comment)
+                 <p>{{$comment->comment}}</p>
+                 @endforeach
                 </div>
             </div>
         </div>
