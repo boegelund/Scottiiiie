@@ -11,15 +11,13 @@
                         <tr>
                             <th>#</th>
                             <th>Owner</th>
-                            <th>Messages</th>
                             <th>Created</th>
                         </tr>
                         @foreach ($images as $image)
                         <tr>
                             <td><a href="image/{{ $image->id }}">{{$image->id}}</a></td>
-                            <td>{{ $image->user->name }}</td>
-                            <td>{{ count($image->messages) }}</td>
-                            <td>{{ $image->created_at }}</td>
+                            <td><a href="image/{{ $image->id }}">{{ $image->user->name }}</a></td>
+                            <td><a href="image/{{ $image->id }}">{{ $image->created_at }}</a></td>
                         </tr>
                         @endforeach
                     </table>
