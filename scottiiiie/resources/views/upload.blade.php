@@ -13,8 +13,8 @@
                             <label for="image">Image (Only .jpg)</label>
                             <input type="file" name="image" class="form-control" id="image">
                         </div>
-                        <input type="submit" value="Submit" class="btn btn-primary" />
-                        <input type="hidden" value="{{ Session::token() }}" name="_token">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </form>
                 </div>
             </div>
