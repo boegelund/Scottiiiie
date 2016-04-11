@@ -8,7 +8,7 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    <img class="img-responsive" src="YOU_SHALL_NOT_PASS.jpg">
+                    <div class="title">Hey!</div>
                 </div>
             </div>
         </div>

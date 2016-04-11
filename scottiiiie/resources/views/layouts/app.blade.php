@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">My Gallery</a></li>
                     @if (!Auth::guest())
                     <li><a href="{{ url('/image/form') }}">Upload Image</a></li>
                     @endif
