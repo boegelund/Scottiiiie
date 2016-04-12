@@ -7,7 +7,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h1>Viewing {{ ucfirst(trans($image->user->name)) }}'s Image</h1></div>
                 <img class="img-responsive" src="data:image/jpeg;charset=utf-8;base64,{{base64_encode($image->image_data)}}">
-                <div class="panel-heading"><h2>Viewer privileges</h2></div>
                     <table class="table table-striped">
                         @if (Auth::user()->id == $image->user_id)
                         <tr>
@@ -57,17 +56,38 @@
                         </tr>
                         @endforeach
                     </table>
-                <form action="{{url("comment/create")}}" method="POST">
-                    <p>comments:</p>
-                    <input type="text" id="comment" name="comment">
-                    <input type="hidden" value="{{$image->id}}" name="image_id">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="submit" value="Submit" class="btn btn-primary">
-                </form>
-                <hr>
-                 @foreach ($image->comments as $comment)
-                 <p>{{$comment->comment}}</p>
-                 @endforeach
+                <div class="panel-heading"><h1>Comment Section</h1></div>
+                <table class="table table-striped">
+                    <form action="{{url("comment/create")}}" method="POST">
+                    <tr>
+                        <td>
+                            <input type="text" id="comment" name="comment" class="form-control" placeholder="Your comment">
+                        </td>
+                        <td>
+                            
+                        </td>
+                        
+                        <td>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                            <input type="hidden" value="{{$image->id}}" name="image_id">
+                        </td>
+                        
+                    </tr>
+                    </form>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Author</th>
+                        <th>Created At</th>
+                    </tr>
+                    @foreach ($image->comments as $comment)
+                    <tr>
+                        <td>{{ $comment->comment }}</td>
+                        <td>{{ $comment->user->name }}</td>
+                        <td>{{ $comment->created_at }}</td>
+                    </tr>
+                    @endforeach
+                </table>
                 </div>
             </div>
         </div>
