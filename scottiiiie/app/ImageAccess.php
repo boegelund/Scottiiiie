@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ImageAccess extends Model
 {
+    use SoftDeletes;
+    
     protected $table = 'image_access';
     
     public function user()
@@ -17,4 +20,6 @@ class ImageAccess extends Model
     {
         return $this->belongsTo('App\Image');
     }
+    
+    protected $dates = ['deleted_at'];
 }
