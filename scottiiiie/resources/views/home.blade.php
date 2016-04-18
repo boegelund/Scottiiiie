@@ -5,14 +5,23 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
+                <div class="panel-heading">Private Gallery</div>
+                    <div class="panel-heading"><h2>Viewer privileges</h2></div>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>#</th>
+                            <th>Owner</th>
+                            <th>Created</th>
+                        </tr>
+                        @foreach ($images as $image)
+                        <tr>
+                            <td><a href="image/{{ $image->id }}">{{$image->id}}</a></td>
+                            <td><a href="image/{{ $image->id }}">{{ $image->user->name }}</a></td>
+                            <td><a href="image/{{ $image->id }}">{{ $image->created_at }}</a></td>
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
-                @foreach ($users as $user)
-                    <p>This is user {{ $user->name }}</p>
-                @endforeach
             </div>
         </div>
     </div>

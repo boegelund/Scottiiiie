@@ -2,9 +2,12 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateImageAccessTable extends Migration
 {
+    use SoftDeletes;
+    
     /**
      * Run the migrations.
      *
@@ -17,7 +20,8 @@ class CreateImageAccessTable extends Migration
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unique(array('image_id', 'user_id'));
+            $table->softDeletes();
+            $table->unique(array('image_id', 'user_id', 'deleted_at'));
             $table->timestamps();
         });
     }

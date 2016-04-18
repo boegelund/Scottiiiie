@@ -3,18 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ImageAccess extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
+    use SoftDeletes;
+    
     protected $table = 'image_access';
     
-    /**
-     * Using composite unique keys
-     */
-    protected $incrementing = false;
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
+    public function image()
+    {
+        return $this->belongsTo('App\Image');
+    }
+    
+    protected $dates = ['deleted_at'];
 }

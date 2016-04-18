@@ -12,12 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
 Route::auth();
 
+Route::get('image/revokeUser/{image_id}/{user_id}', 'ImageController@revokeUser');
+Route::post('comment/create', 'CommentController@store');
+Route::get('image/form', 'ImageController@form');
+Route::post('image/submit', 'ImageController@submit');
+Route::get('image/get/{id}', 'ImageController@get');
+Route::post('image/addUser', 'ImageController@addUser');
+Route::get('image/{id}', 'ImageController@showImage');
+
 Route::get('/home', 'HomeController@index');
-Route::get('/upload_form', 'HomeController@uploadForm');
-Route::get('/upload_submit', 'HomeController@uploadSubmit');
+
 
